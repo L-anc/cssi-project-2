@@ -31,11 +31,13 @@ const goBack = () => {
     passcodeInput.style.display = 'block';
     const displayDiv = document.querySelector('#display');
     displayDiv.innerHTML = "";
+    document.querySelector("#image").classList.add("hidden");
 }
 
 var linkkey;
 const renderSongAsHtml = (songData) => {
 document.querySelector("#back").classList.remove("hidden");
+document.querySelector("#image").classList.remove("hidden");
  // Hide the passcode view
  const passcodeInput = document.querySelector('#passcodeInput');
  passcodeInput.style.display = 'none';
