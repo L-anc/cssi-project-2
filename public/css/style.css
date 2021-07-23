@@ -22,8 +22,12 @@ body {
   box-shadow: 8px 8px 15px var(--shadowDark), -8px -8px 15px var(--shadowLight);
 }
 
-input {
+#title, #artist, #message {
   background: var(--shadowDark) !important;
+}
+
+#spacer {
+  height: 15px;
 }
 
 a {
@@ -32,4 +36,8 @@ a {
 
 .hidden {
     visibility: hidden;
+}
+
+#artist {
+  background-color: white;
 }
