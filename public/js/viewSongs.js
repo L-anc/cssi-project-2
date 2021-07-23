@@ -34,7 +34,6 @@ const goBack = () => {
     document.querySelector("#image").classList.add("hidden");
 }
 
-var linkkey;
 const renderSongAsHtml = (songData) => {
 document.querySelector("#back").classList.remove("hidden");
 document.querySelector("#image").classList.remove("hidden");
@@ -45,6 +44,12 @@ document.querySelector("#image").classList.remove("hidden");
  // Show the title
  const displayDiv = document.querySelector('#display');
  displayDiv.innerHTML = "Title: " + songData.title + "<br>Artist: " + songData.artist + "<br>Link: " + songData.link; 
- linkkey = songData.link.substring(32);
+ var link = songData.link;
+ var linkkey = link.substring(32);
+ console.log(link + " " + linkkey);
+
+ const imageHolderDiv = document.querySelector("#imageholder");
+ const url = `https://i.ytimg.com/vi/${linkkey}/hqdefault.jpg`;
+ imageHolderDiv.innerHTML = `<img src = "${url}" />`;
  
 }
