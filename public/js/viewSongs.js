@@ -10,16 +10,16 @@ const getSongs = () => {
 
 let notFound = true;
 let counter = 0;
-const findMessage = (messages) => {
+const findSong = (songs) => {
  const title = document.querySelector('#title').value;
  for (song in songs) {
      const songData = songs[song];
      if (songData.title == title) {
-         renderMessageAsHtml(songData.song);
+         renderSongAsHtml(songData.song);
          notFound = false;
      }
  }if (notFound){
-     renderMessageAsHtml("error: song not found");
+     renderSongAsHtml("error: song not found");
     // alert("error: message not found");
  }
 
@@ -29,18 +29,23 @@ const goBack = () => {
     document.querySelector("#back").classList.add("hidden");
     const passcodeInput = document.querySelector('#passcodeInput');
     passcodeInput.style.display = 'block';
-    const messageDiv = document.querySelector('#message');
-    messageDiv.innerHTML = "";
+    const titleDiv = document.querySelector('#title');
+    titleDiv.innerHTML = "";
+    const artistDiv = document.querySelector('#artist');
+    artistDiv.innerHTML = ""; 
 }
 
 
-const renderMessageAsHtml = (message) => {
+const renderSongAsHtml = (song) => {
 document.querySelector("#back").classList.remove("hidden");
  // Hide the passcode view
  const passcodeInput = document.querySelector('#passcodeInput');
  passcodeInput.style.display = 'none';
  
- // Show the message
- const messageDiv = document.querySelector('#message');
- messageDiv.innerHTML = message; 
+ // Show the title
+ const titleDiv = document.querySelector('#title');
+ titleDiv.innerHTML = song.title; 
+ const artistDiv = document.querySelector('#artist');
+ artistDiv.innerHTML = song.artist; 
+ 
 }
