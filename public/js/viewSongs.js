@@ -1,10 +1,10 @@
 // Retrieve the messages from the database
 const getSongs = () => {
  const songsRef = firebase.database().ref('/songs');
- messagesRef.on('value', (snapshot) => {
+ songsRef.on('value', (snapshot) => {
      const data = snapshot.val();
     //  console.log(data);
-     findMessage(data);
+     findSong(data);
  });
 }
 

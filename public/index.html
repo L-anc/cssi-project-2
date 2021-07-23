@@ -1,12 +1,19 @@
 
 <!DOCTYPE html>
 <html>
-
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Secret Messaging App</title>
+    <title>Song Library App</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -20,40 +27,45 @@
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-menu is-active">
-        <a class="navbar-item" href="viewMessages.html">
-          View Your Messages
+        <a class="navbar-item" href="viewSongs.html">
+          View Songs
         </a>
       </div>
     </nav>
     <br>
-    <h1 class="title has-text-centered">Song Recommendation App</h1>
+    <h1 class="title has-text-centered">Song Library App</h1>
     <section class="hero is-fullheight">
       <div class="hero-body has-text-centered">
         <div class="login">
           <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-rap-songs-1583527287.png?crop=0.5xw:1xh;center,top" width="325px" />
           <form action="javascript:void(0);">
             <div class="field">
+              <br>
               <div class="control">
-                <input class="input is-medium is-rounded" type="text" id="passcode" placeholder="Enter a passcode" required />
+                <input class="input is-medium" type="text" id="title" placeholder="Enter a song title" required />
               </div>
             </div>
             <div class="field">
               <div class="control">
-                <textarea class="textarea is-medium is-rounded" type="text" id="message" placeholder="Share a secret message with your friend!" required></textarea>
+                <input class="input is-medium" type="text" id="artist" placeholder="Enter an artist name" required />
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea is-medium is-rounded" type="text" id="message" placeholder="Add a Youtube link" required></textarea>
               </div>
             </div>
             <br />
             <button class="button is-block is-fullwidth is-primary is-medium is-rounded" onclick = "submitMessage()">
-              Send Message
+              Add Song
             </button>
-            <p>Message max 25 characters <br> Passcode min 1 number and 1 uppercase</p>
           </form>
           <br>
         </div>
       </div>
     </section>
     
-    <script src="js/writeMessage.js"></script>
+    <script src="js/writeSong.js"></script>
   </body>
 
 </html>
