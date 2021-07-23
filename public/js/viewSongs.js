@@ -1,6 +1,6 @@
 // Retrieve the messages from the database
-const getMessages = () => {
- const messagesRef = firebase.database().ref('/messages');
+const getSongs = () => {
+ const songsRef = firebase.database().ref('/songs');
  messagesRef.on('value', (snapshot) => {
      const data = snapshot.val();
     //  console.log(data);
@@ -11,20 +11,18 @@ const getMessages = () => {
 let notFound = true;
 let counter = 0;
 const findMessage = (messages) => {
- const passcodeAttempt = document.querySelector('#passcode').value;
- for (message in messages) {
-     const messageData = messages[message];
-     if (messageData.passcode == passcodeAttempt) {
-         renderMessageAsHtml(messageData.message);
+ const title = document.querySelector('#title').value;
+ for (song in songs) {
+     const songData = songs[song];
+     if (songData.title == title) {
+         renderMessageAsHtml(songData.song);
          notFound = false;
      }
  }if (notFound){
-     counter++;
-     renderMessageAsHtml("error: message not found");
+     renderMessageAsHtml("error: song not found");
     // alert("error: message not found");
- }if (counter>=5){
-     renderMessageAsHtml("error: too many incorrect attempts");
  }
+
 }
 
 const goBack = () => {
