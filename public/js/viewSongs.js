@@ -1,6 +1,6 @@
 // Retrieve the messages from the database
 const getSongs = () => {
- const songsRef = firebase.database().ref('/songs');
+ const songsRef = firebase.database().ref('/Songs');
  songsRef.on('value', (snapshot) => {
      const data = snapshot.val();
     //  console.log(data);
@@ -15,7 +15,7 @@ const findSong = (songs) => {
  for (song in songs) {
      const songData = songs[song];
      if (songData.title == title) {
-         renderSongAsHtml(songData.song);
+         renderSongAsHtml(songData);
          notFound = false;
      }
  }if (notFound){
@@ -29,23 +29,20 @@ const goBack = () => {
     document.querySelector("#back").classList.add("hidden");
     const passcodeInput = document.querySelector('#passcodeInput');
     passcodeInput.style.display = 'block';
-    const titleDiv = document.querySelector('#title');
-    titleDiv.innerHTML = "";
-    const artistDiv = document.querySelector('#artist');
-    artistDiv.innerHTML = ""; 
+    const displayDiv = document.querySelector('#display');
+    displayDiv.innerHTML = "";
 }
 
-
-const renderSongAsHtml = (song) => {
+var linkkey;
+const renderSongAsHtml = (songData) => {
 document.querySelector("#back").classList.remove("hidden");
  // Hide the passcode view
  const passcodeInput = document.querySelector('#passcodeInput');
  passcodeInput.style.display = 'none';
  
  // Show the title
- const titleDiv = document.querySelector('#title');
- titleDiv.innerHTML = song.title; 
- const artistDiv = document.querySelector('#artist');
- artistDiv.innerHTML = song.artist; 
+ const displayDiv = document.querySelector('#display');
+ displayDiv.innerHTML = "Title: " + songData.title + "<br>Artist: " + songData.artist + "<br>Link: " + songData.link; 
+ linkkey = songData.link.substring(32);
  
 }

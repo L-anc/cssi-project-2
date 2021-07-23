@@ -5,7 +5,7 @@ function addSong() {
 
 
     
-    firebase.database().ref('/songs').push({
+    firebase.database().ref('/Songs').push({
         title: title,
         artist: artist,
         link: link,
