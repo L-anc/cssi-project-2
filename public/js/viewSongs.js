@@ -19,8 +19,7 @@ const findSong = (songs) => {
          notFound = false;
      }
  }if (notFound){
-     renderSongAsHtml("error: song not found");
-    // alert("error: message not found");
+    alert("error: song not found");
  }
 
 }
@@ -44,12 +43,15 @@ document.querySelector("#image").classList.remove("hidden");
  // Show the title
  const displayDiv = document.querySelector('#display');
  displayDiv.innerHTML = "Title: " + songData.title + "<br>Artist: " + songData.artist + "<br>Link: " + songData.link; 
- var link = songData.link;
- var linkkey = link.substring(32);
- console.log(link + " " + linkkey);
+ var linkkey = "";
+ if ((songData.link).length>32){
+     linkkey = songData.link.substring(32);
+ }else{
+     linkkey = songData.link.substring(17);
+ }
 
  const imageHolderDiv = document.querySelector("#imageholder");
  const url = `https://i.ytimg.com/vi/${linkkey}/hqdefault.jpg`;
- imageHolderDiv.innerHTML = `<img src = "${url}" />`;
+ imageHolderDiv.innerHTML = `<a href="${songData.link}"><img src = "${url}" /></a>`;
  
 }
